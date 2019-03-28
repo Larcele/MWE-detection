@@ -3,7 +3,7 @@ import settings as st
 iFnames = [st.FNAME_EN, st.FNAME_DE, st.FNAME_PL, st.FNAME_SL]
 oFnames = [st.RAW_FNAME_EN, st.RAW_FNAME_DE, st.RAW_FNAME_PL, st.RAW_FNAME_SL]
 
-
+''' Extracts only raw text sentences form the .cupt file '''
 def generate_RAWS(iFname, oFname):
 	raw_sentences = [] 
 	try:

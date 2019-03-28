@@ -11,6 +11,7 @@ def get_lang(string):
 		return string.split("_")[1]
 	else: return "<unknown>"
 
+''' Filters out specific attributes (columns) from the original .cupt file and creates a new .cupt file with these columns  '''
 def generate_cupt_file(iFname, oFname):
 	print("Creating new .cupt file for {0}...".format(get_lang(iFname)))
 
@@ -48,7 +49,7 @@ def generate_cupt_file(iFname, oFname):
 
 		print("File generating successfull.")
 
-
+''' generates .cupt files of multiple files merged into one. '''
 def generate_mixed_cupts(file1, file2, train=True):
 	try:
 		print("Creating new .cupt file for {0}, {1}...".format(get_lang(file1), get_lang(file2)))

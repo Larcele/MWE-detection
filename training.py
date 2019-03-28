@@ -11,6 +11,8 @@ from sklearn.metrics import classification_report
 import settings as st
 import io
 
+''' Provided a .vec file of fastText word vector models, constructs a dictionary of words;
+ 	each word key paired to a corresponding vector representation (array of floats)'''
 def load_vectors(fname):
     fin = io.open(fname, 'r', encoding='utf-8', newline='\n', errors='ignore')
     n, d = map(int, fin.readline().split())
@@ -21,6 +23,7 @@ def load_vectors(fname):
     return data
 
 
+''' Based on supplied 'lang' string sets all the needed model/data set variables which will be used in training '''
 def get_final_dataset(lang):
 
 	trainfile = ""
@@ -55,7 +58,8 @@ def get_final_dataset(lang):
 
 	return X_train, Y_train, X_test, Y_test, vmwe_types
 
-
+''' Translates the data set into number representations. 
+	Returns the input set (numpy array), target set (array), and mwe category types (set) '''
 def parse_dset(model, trainfile, vmwes=["*"], shouldAppend=True):
 	#vmwes = []#"VID", "LVC.full", "LVC.cause", "VPC.full", "VPC.semi", "IAV", "MVC", ]
 
@@ -242,7 +246,6 @@ def select_best_params(X_train, Y_train):
 
 
 	return C, G
-
 
 	
 #prepare the datasets format in which it will be fed to the classifiers
